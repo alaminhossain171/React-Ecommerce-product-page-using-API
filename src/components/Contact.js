@@ -143,7 +143,7 @@ content: {
 }
 
 }}>
-<h2>Hello Mr/Mrs {see.fName}
+<h2>Hello Mr/Mrs <span className="text-primary">{see.fName}</span>
 </h2>
 <h3>We will review your Message as soon as possible</h3>
 <h4>Be patient ! Thank you 😇</h4>

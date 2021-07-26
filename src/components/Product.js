@@ -41,7 +41,7 @@ axios.get(`https://fakestoreapi.com/products/${match.params.id}`)
             </div>
 
             <div className="col-md-12 text-center">
-            <button className="btn btn-success my-5">Add to Chart </button>
+            <button className="btn btn-success my-5">Add to Cart </button>
             </div>
         </div>
         </div>
