@@ -8,20 +8,11 @@ import Product from './components/Product';
 
 
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
-import { CartContext } from './CartContext';
-import { useState,useEffect } from 'react';
+
+
 
 
 function App() {
-const [cart,setCart]=useState({});
-useEffect(() => {
-const cart= window.localStorage.getItem('cart');
-setCart(JSON.parse(cart));
-
-}, []);
-useEffect(() => {
-  window.localStorage.setItem('cart',JSON.stringify(cart));
-}, [cart])
 
 
 
@@ -32,7 +23,7 @@ useEffect(() => {
     <BrowserRouter>
    
     <div className="App">
-   <CartContext.Provider value={{cart,setCart}} >
+  
       <Header />
      <Switch>
        
@@ -44,7 +35,7 @@ useEffect(() => {
        <Route path="/Products/:id" exact component={Product} />
 
      </Switch>
-     </CartContext.Provider>
+   
      <Footer />
     
      </div>

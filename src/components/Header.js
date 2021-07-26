@@ -1,10 +1,9 @@
 import React from 'react'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import {Link} from 'react-router-dom';
-import { useContext } from 'react';
-import { CartContext } from '../CartContext';
+
 const Header = () => {
-  const {cart}=useContext(CartContext);
+
 
     return ( <>
         <div className="header">
@@ -32,7 +31,7 @@ const Header = () => {
 
         <li class="nav-item">
           <Link className="nav-link btn btn-warning" href="#"><AddShoppingCartIcon className="mr-2 " /><b>
-            {cart.totalItems}</b></Link>
+        0</b></Link>
            
         </li>
       </ul>

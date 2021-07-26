@@ -24,6 +24,7 @@ axios.get(`https://fakestoreapi.com/products/${match.params.id}`)
 })
 
 function addToCart(e,oneProduct){
+    e.preventDefault();
     let _cart={...cart};
     if(!_cart.items){
         _cart.items={}
