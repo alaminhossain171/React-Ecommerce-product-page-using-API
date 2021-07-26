@@ -1,13 +1,13 @@
 import axios from 'axios';
-import React,{useState,useEffect,useContext} from 'react';
-import { CartContext } from '../CartContext';
+import React,{useState,useEffect} from 'react';
+
 
 
 
 
 
 const Product = ({match}) => {
-const {cart,setCart}=useContext(CartContext);
+
 
 
 
@@ -23,28 +23,7 @@ axios.get(`https://fakestoreapi.com/products/${match.params.id}`)
 })
 })
 
-function addToCart(e,oneProduct){
-    e.preventDefault();
-    let _cart={...cart};
-    if(!_cart.items){
-        _cart.items={}
-    }
-    if(_cart.items[oneProduct.id]){
-        _cart.items[oneProduct.id]+=1;
-    }
-    else{
-        _cart.items[oneProduct.id]=1; 
-    }
-if(!_cart.totalItems){
-    _cart.totalItems=0;
-}
-    _cart.totalItems+=1;
-    setCart(_cart);
-    
 
-
-
-}
     return (
         <div className="container mt-5">
         <div className="row">
@@ -62,7 +41,7 @@ if(!_cart.totalItems){
             </div>
 
             <div className="col-md-12 text-center">
-            <button onClick={(e)=>{addToCart(e,oneProduct)}} className="btn btn-success my-5">Add to Chart </button>
+            <button className="btn btn-success my-5">Add to Chart </button>
             </div>
         </div>
         </div>
