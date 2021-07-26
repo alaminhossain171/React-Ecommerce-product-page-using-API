@@ -1,24 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Header from './components/Header';
+import Slider from './components/Slider';
+import Products from './components/Products';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Product from './components/Product';
+
+
+import {BrowserRouter,Switch,Route} from 'react-router-dom'
+import { CartContext } from './CartContext';
+import { useState,useEffect } from 'react';
+
 
 function App() {
+const [cart,setCart]=useState({});
+useEffect(() => {
+const cart= window.localStorage.getItem('cart');
+setCart(JSON.parse(cart));
+
+}, []);
+useEffect(() => {
+  window.localStorage.setItem('cart',JSON.stringify(cart));
+}, [cart])
+
+
+
+
+
+
   return (
+    <BrowserRouter>
+   
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <CartContext.Provider value={{cart,setCart}} >
+      <Header />
+     <Switch>
+       
+       <Route path="/" exact component={Slider} />
+   
+       <Route path="/Products" exact component={Products} />
+      
+       <Route path="/Contact" exact component={Contact} />
+       <Route path="/Products/:id" exact component={Product} />
+
+     </Switch>
+     </CartContext.Provider>
+     <Footer />
+    
+     </div>
+     
+    </BrowserRouter>
+  
   );
 }
 
